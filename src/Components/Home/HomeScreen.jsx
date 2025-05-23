@@ -1,0 +1,169 @@
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router";
+import "../../font.css";
+
+const HomeScreen = () => {
+  return (
+    <>
+      <div className="relative flex flex-col md:flex-row items-start h-fit ">
+        {/* Left Side Content */}
+        <div className=" mt-8 pt-24 md:mt-10 lg:pt-40 fira-code p-3 pl-5 md:pt-24 md:w-1/2 md:pl-10 lg:w-[55%] lg:pl-16 text-center md:text-left">
+          <motion.div
+            className=" md:hidden block"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <motion.div className="w-32 mx-auto mb-5" id="profile-image">
+              <img
+                src="src/assets/mobileProfile.jpg"
+                alt=""
+                srcset=""
+                className=" rounded-full shadow-[0px_0px_25px_0px_#64ffda]"
+              />
+            </motion.div>
+          </motion.div>
+
+          <motion.h1
+            className="text-[#64ffda] font-bold"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <p className="w-fit mx-auto md:mx-0">
+              Hi, my name is{" "}
+              <motion.p
+                className="text-[#ccd6f6] text-3xl md:text-4xl lg:text-5xl xl:text-6xl w-fit"
+                whileHover={{ color: "#64ffda" }}
+              >
+                Krishna Gavali
+              </motion.p>
+            </p>
+          </motion.h1>
+          <motion.p
+            className="text-slate-500 text-lg mt-2 font-bold md:text-xl lg:text-3xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            I build things for the web.
+          </motion.p>
+          <motion.p
+            className="text-slate-500 text-sm mt-2 md:text-lg lg:text-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            I'm a software engineer who loves building multiplayer games, AI
+            tools, and web products that actually feel good to use. I mix smart
+            tech with a little bit of playful chaos to turn ideas into real,
+            living experiences.
+          </motion.p>
+          <div
+            className="flex flex-row gap-2 mt-2 items-center justify-center md:justify-start"
+            id="social-media-icons"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <a href="https://www.linkedin.com/in/krishnagavali">
+                <motion.img
+                  width="30"
+                  height="30"
+                  src="https://img.icons8.com/ios/50/64ffda/linkedin.png"
+                  alt="linkedin"
+                  whileHover={{
+                    scale: 1.1,
+                    rotate: 25,
+                    transition: {
+                      duration: 0.25,
+                    },
+                  }}
+                  whileTap={{
+                    scale: 1.2,
+                  }}
+                />
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }} // slight delay difference for stagger effect
+            >
+              <a href="https://github.com/krishnagavali">
+                <motion.img
+                  width="30"
+                  height="30"
+                  src="https://img.icons8.com/ios-glyphs/50/64ffda/github.png"
+                  alt="github"
+                  whileHover={{
+                    scale: 1.1,
+                    rotate: 25,
+                    transition: {
+                      duration: 0.25,
+                    },
+                  }}
+                  whileTap={{
+                    scale: 1.2,
+                  }}
+                />
+              </a>
+            </motion.div>
+          </div>
+
+          <div to="/projects">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.9 }}
+            >
+              <motion.button
+                className="text-[#64ffda] border border-[rgb(100,255,218)] rounded px-4 py-2 mt-4 relative fira-code md:text-lg lg:text-xl"
+                whileHover={{
+                  backgroundColor: "rgba(100, 255, 218)",
+                  color: "#0a192f",
+                  transition: {
+                    duration: 0.3,
+                  },
+                  cursor: "pointer",
+                }}
+                whileTap={{
+                  scale: 0.9,
+                  transition: {
+                    duration: 0.3,
+                  },
+                }}
+              >
+                Check out my projects
+              </motion.button>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Right Side Image - Only visible on tablet and larger screens */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            className="w-full md:w-1/2 hidden lg:w-[45%] pt-80 relative md:flex justify-center items-center overflow-hidden h-[600px]"
+            initial={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.8 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+          >
+            <img
+              src="src/assets/MeSittingDeskWaving.png"
+              alt="Profile"
+              className=" md:w-full max-w-xs md:max-w-md"
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      <div className=" h-screen"></div>
+    </>
+  );
+};
+
+export default HomeScreen;
