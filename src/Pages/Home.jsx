@@ -4,6 +4,7 @@ import "../font.css";
 import { Link } from "react-router";
 import HomeScreen from "../Components/Home/HomeScreen";
 import Navbar from "../Components/Home/Navbar";
+import AboutMeSection from "../Components/Home/AboutMeSection";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <AnimatePresence mode="wait">
         <Navbar />
         <HomeScreen />
+        <AboutMeSection />
       </AnimatePresence>
     </div>
   );

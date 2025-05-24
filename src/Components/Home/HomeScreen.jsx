@@ -6,7 +6,7 @@ import "../../font.css";
 const HomeScreen = () => {
   return (
     <>
-      <div className="relative flex flex-col md:flex-row items-start h-fit ">
+      <div className="relative flex flex-col md:flex-row items-start h-screen ">
         {/* Left Side Content */}
         <div className=" mt-8 pt-24 md:mt-10 lg:pt-40 fira-code p-3 pl-5 md:pt-24 md:w-1/2 md:pl-10 lg:w-[55%] lg:pl-16 text-center md:text-left">
           <motion.div
@@ -126,10 +126,11 @@ const HomeScreen = () => {
                 whileHover={{
                   backgroundColor: "rgba(100, 255, 218)",
                   color: "#0a192f",
+                  boxShadow: "7px 7px 0px 0px white",
+                  cursor: "pointer",
                   transition: {
                     duration: 0.3,
                   },
-                  cursor: "pointer",
                 }}
                 whileTap={{
                   scale: 0.9,
@@ -161,7 +162,6 @@ const HomeScreen = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-      <div className=" h-screen"></div>
     </>
   );
 };

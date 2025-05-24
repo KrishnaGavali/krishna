@@ -74,11 +74,23 @@ const Navbar = () => {
                   0{navItems.indexOf(item) + 1}.
                 </span>
                 <motion.span
-                  className=" text-[#64ffda] cursor-pointer "
+                  className="p-2 text-[#64ffda]"
+                  initial={{
+                    color: "#64ffda",
+                  }}
                   whileHover={{
-                    color: "#ffffff",
+                    color: "#0a192f",
+                    backgroundColor: "#64ffda",
+                    borderRadius: "10px",
+                    cursor: "pointer",
                     transition: {
-                      duration: 0.1,
+                      duration: 0.3,
+                    },
+                  }}
+                  whileTap={{
+                    borderRadius: "0px",
+                    transition: {
+                      duration: 0.3,
                     },
                   }}
                 >
@@ -95,6 +107,12 @@ const Navbar = () => {
             whileHover={{
               backgroundColor: "rgba(100, 255, 218)",
               color: "#0a192f",
+              boxShadow: "5px 5px 0px 0px white",
+              cursor: "pointer",
+
+              transition: {
+                duration: 0.3,
+              },
             }}
             transition={{ duration: 0.3 }}
             whileTap={{
