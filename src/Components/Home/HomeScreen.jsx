@@ -68,9 +68,9 @@ const HomeScreen = () => {
             enjoy working across the entire stack, turning ideas into
             interactive, living systems.
           </motion.p>
-          <motion.div className="my-2 flex flex-row items-center justify-center md:justify-start gap-2 text-sm">
+          <motion.div className="my-2 flex flex-row items-center justify-center md:justify-start gap-2 md:text-sm">
             <motion.p
-              className="text-white"
+              className="text-white hidden md:block"
               initial={{
                 x: -20,
                 opacity: 0,
@@ -81,7 +81,7 @@ const HomeScreen = () => {
                 transition: { duration: 0.8, delay: 0.6 },
               }}
             >
-              What I Do :
+              What I build :
             </motion.p>
             <motion.p
               className="p-2 border-2 border-[#64ffda] text-[#64ffda] rounded-full text-xs"
