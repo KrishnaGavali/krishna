@@ -6,9 +6,9 @@ import "../../font.css";
 const HomeScreen = () => {
   return (
     <>
-      <div className="relative flex flex-col md:flex-row items-start h-screen ">
+      <div className="relative flex flex-col md:flex-row items-start mb-14">
         {/* Left Side Content */}
-        <div className=" mt-8 pt-24 md:mt-10 lg:pt-40 fira-code p-3 pl-5 md:pt-24 md:w-1/2 md:pl-10 lg:w-[55%] lg:pl-16 text-center md:text-left">
+        <div className=" mt-8 pt-20 md:mt-10 lg:pt-32 fira-code p-3 pl-5 md:pt-24 md:w-1/2 md:pl-10 lg:w-[55%] lg:pl-16 text-center md:text-left min-w-1/2">
           <motion.div
             className=" md:hidden block"
             initial={{ scale: 0 }}
@@ -55,11 +55,76 @@ const HomeScreen = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            I'm a software engineer who loves building multiplayer games, AI
-            tools, and web products that actually feel good to use. I mix smart
-            tech with a little bit of playful chaos to turn ideas into real,
-            living experiences.
+            I'm a{" "}
+            <motion.span
+              className="text-white underline decoration-[#64ffda] rounded-full px-2"
+              whileHover={{ backgroundColor: "#64ffda", color: "#0a192f" }}
+            >
+              {" "}
+              Full Stack Developer
+            </motion.span>{" "}
+            who loves building real time web apps and web products that actually
+            feel good to use. From responsive interfaces to scalable backends, I
+            enjoy working across the entire stack, turning ideas into
+            interactive, living systems.
           </motion.p>
+          <motion.div className="my-2 flex flex-row items-center justify-center md:justify-start gap-2 text-sm">
+            <motion.p
+              className="text-white"
+              initial={{
+                x: -20,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+                transition: { duration: 0.8, delay: 0.6 },
+              }}
+            >
+              What I Do :
+            </motion.p>
+            <motion.p
+              className="p-2 border-2 border-[#64ffda] text-[#64ffda] rounded-full text-xs"
+              whileHover={{
+                borderLeftWidth: "9px",
+                boxShadow: "0px 0px 10px 0px #64ffda",
+                backgroundColor: "#64ffda",
+                color: "#0a192f",
+              }}
+              initial={{
+                y: 20,
+                opacity: 0,
+              }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: { duration: 0.8, delay: 0.8 },
+              }}
+            >
+              Full Stack Web Products
+            </motion.p>
+
+            <motion.p
+              className="p-2 border-2 border-[#64ffda] text-[#64ffda] rounded-full text-xs"
+              whileHover={{
+                borderLeftWidth: "9px",
+                boxShadow: "0px 0px 10px 0px #64ffda",
+                backgroundColor: "#64ffda",
+                color: "#0a192f",
+              }}
+              initial={{
+                y: 20,
+                opacity: 0,
+              }}
+              animate={{
+                y: 0,
+                opacity: 1,
+                transition: { duration: 0.8, delay: 0.9 },
+              }}
+            >
+              Real Time Web Apps
+            </motion.p>
+          </motion.div>
           <div
             className="flex flex-row gap-2 mt-2 items-center justify-center md:justify-start"
             id="social-media-icons"
@@ -133,9 +198,9 @@ const HomeScreen = () => {
                   },
                 }}
                 whileTap={{
-                  scale: 0.9,
+                  boxShadow: "0px 0px 0px 0px white",
                   transition: {
-                    duration: 0.3,
+                    duration: 0.1,
                   },
                 }}
               >
@@ -148,9 +213,9 @@ const HomeScreen = () => {
         {/* Right Side Image - Only visible on tablet and larger screens */}
         <AnimatePresence mode="wait">
           <motion.div
-            className="w-full md:w-1/2 hidden lg:w-[45%] pt-80 relative md:flex justify-center items-center overflow-hidden h-[600px]"
-            initial={{ opacity: 0, x: 20 }}
-            transition={{ duration: 0.8 }}
+            className="w-full md:w-fit hidden lg:w-[45%] pt-80 relative md:flex justify-center items-center overflow-hidden h-[690px]"
+            initial={{ opacity: 0, x: 300 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
           >

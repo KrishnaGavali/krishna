@@ -25,11 +25,11 @@ const Navbar = () => {
   });
 
   const navItems = [
-    { id: "home", label: "Home", route: "/" },
-    { id: "projects", label: "Projects", route: "/projects" },
-    { id: "work", label: "Work", route: "/work" },
-    { id: "blogs", label: "Blogs", route: "/blogs" },
-    { id: "contact", label: "Contact", route: "/contact" },
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
+    { id: "contact", label: "Contact" },
   ];
 
   return (
@@ -62,7 +62,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center lg:space-x-6 md:space-x-4 ">
           {navItems.map((item) => (
             <div
               key={item.id}
@@ -116,7 +116,10 @@ const Navbar = () => {
             }}
             transition={{ duration: 0.3 }}
             whileTap={{
-              scale: 0.9,
+              boxShadow: "0px 0px 0px 0px white",
+              transition: {
+                duration: 0.1,
+              },
             }}
           >
             <span>Resume</span>

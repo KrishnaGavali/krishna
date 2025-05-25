@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import HomeScreen from "../Components/Home/HomeScreen";
 import Navbar from "../Components/Home/Navbar";
 import AboutMeSection from "../Components/Home/AboutMeSection";
+import SkillsLG from "../Components/Home/SkillsLG";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
         <Navbar />
         <HomeScreen />
         <AboutMeSection />
+        <SkillsLG />
       </AnimatePresence>
     </div>
   );
