@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../font.css";
 import { AnimatePresence, motion } from "framer-motion";
+import { div } from "motion/react-client";
 
 // Animations ✨
 const cardVariant = {
@@ -49,16 +50,18 @@ const SkillCard = ({ title, skills, points }) => (
     </div>
     <div className="mt-3 flex flex-col gap-2">
       {points.map((points) => (
-        <motion.p key={points} className="text-sm">
-          <span className="text-[#0a192f]">{"> "}</span>
-          {points}
-        </motion.p>
+        <div className="flex flex-row">
+          <span className="text-[#0a192f] inline">{"> "}</span>
+          <motion.p key={points} className="text-sm inline">
+            {points}
+          </motion.p>
+        </div>
       ))}
     </div>
   </motion.div>
 );
 
-const SkillsLG = () => {
+const Skills = () => {
   const [currentTab, setCurrentTab] = useState("frontend");
 
   // All your skill sets in one clean object
@@ -96,19 +99,13 @@ const SkillsLG = () => {
         "REST APIs",
         "Redis (Upstash)",
         "Socket.IO (Server)",
-        "FastAPI",
-        "PyMongo",
         "JWT Authentication",
-        "Python",
-        "OpenCV",
-        "CNN (Image Classification)",
       ],
       points: [
         "Built REST & socket servers",
         "Session storage with Redis",
         "JWT for secure login",
         "FastAPI for ML tools",
-        "Used CNN for classification",
         "Handled room matchmaking logic",
         "Connected and Handled MongoDB  with backend",
         "Tested APIs using Postman",
@@ -136,8 +133,6 @@ const SkillsLG = () => {
         "Managed apps using PM2",
         "Edited configs with Vim",
         "Linux CLI for deployment",
-        "Git for version control",
-        "Updated live builds easily",
       ],
     },
   };
@@ -212,4 +207,4 @@ const SkillsLG = () => {
   );
 };
 
-export default SkillsLG;
+export default Skills;

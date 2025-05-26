@@ -20,8 +20,6 @@ const Navbar = () => {
     } else {
       setScrolledStyle("");
     }
-
-    console.log(latest);
   });
 
   const navItems = [
