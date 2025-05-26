@@ -5,7 +5,7 @@ import "../../font.css";
 const AboutMeSection = () => {
   return (
     <div className="fira-code p-10 pt-7 bg-[#0a192f]">
-      <div className="w-full md:w-[75%] mx-auto mb-5 md:mb-10 flex flex-col items-center ">
+      <div className="w-full md:w-[90%] lg:w-[75%] mx-auto mb-5 md:mb-10 flex flex-col items-center ">
         <motion.p
           className="text-center text-[#64ffda] text-2xl font-extrabold mb-5"
           initial={{ opacity: 0, y: -10 }}
@@ -77,10 +77,6 @@ const AboutMeSection = () => {
             </div>
             <p className="text-[#8892b0]">
               G. H. Raisoni College of Engineering and Management, Pune
-            </p>
-            <p className="text-[#8892b0] italic">
-              Grade:AVG{" "}
-              <span className="text-[#64ffda]">(this portfolio? 10/10 💥)</span>
             </p>
           </motion.div>
         </div>
