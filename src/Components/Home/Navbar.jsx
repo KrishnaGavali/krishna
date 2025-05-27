@@ -5,9 +5,9 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "motion/react"; // Corrected import for motion
-import { NavLink, Link } from "react-router"; // Corrected import
 import "../../font.css";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
@@ -62,40 +62,41 @@ const Navbar = () => {
         {/* Navigation */}
         <div className="hidden md:flex items-center lg:space-x-6 md:space-x-4 ">
           {navItems.map((item) => (
-            <div
-              key={item.id}
-              to={item.route}
-              className={`relative text-sm transition duration-300 ease-in-out`}
-            >
-              <motion.span>
-                <span className="text-[#64ffda] mr-1">
-                  0{navItems.indexOf(item) + 1}.
-                </span>
-                <motion.span
-                  className="p-2 text-[#64ffda]"
-                  initial={{
-                    color: "#64ffda",
-                  }}
-                  whileHover={{
-                    color: "#0a192f",
-                    backgroundColor: "#64ffda",
-                    borderRadius: "10px",
-                    cursor: "pointer",
-                    transition: {
-                      duration: 0.3,
-                    },
-                  }}
-                  whileTap={{
-                    borderRadius: "0px",
-                    transition: {
-                      duration: 0.3,
-                    },
-                  }}
-                >
-                  {item.label}
+            <Link to={item.label} smooth={true} duration={300} offset={-120}>
+              <div
+                key={item.id}
+                className={`relative text-sm transition duration-300 ease-in-out`}
+              >
+                <motion.span>
+                  <span className="text-[#64ffda] mr-1">
+                    0{navItems.indexOf(item) + 1}.
+                  </span>
+                  <motion.span
+                    className="p-2 text-[#64ffda]"
+                    initial={{
+                      color: "#64ffda",
+                    }}
+                    whileHover={{
+                      color: "#0a192f",
+                      backgroundColor: "#64ffda",
+                      borderRadius: "10px",
+                      cursor: "pointer",
+                      transition: {
+                        duration: 0.3,
+                      },
+                    }}
+                    whileTap={{
+                      borderRadius: "0px",
+                      transition: {
+                        duration: 0.3,
+                      },
+                    }}
+                  >
+                    {item.label}
+                  </motion.span>
                 </motion.span>
-              </motion.span>
-            </div>
+              </div>
+            </Link>
           ))}
 
           {/* Resume Button */}
@@ -153,24 +154,30 @@ const Navbar = () => {
               <div className="w-1/2 mx-auto flex flex-col items-center justify-center h-full relative bottom-28">
                 <div className="flex flex-col space-y-4 ">
                   {navItems.map((item) => (
-                    <div onClick={() => setShowMobileNav(false)}>
-                      <div
-                        key={item.id}
-                        to={item.route}
-                        className={({ isActive }) =>
-                          `text-sm transition duration-300 ease-in-out ${
-                            isActive ? "text-[#64ffda]" : "text-gray-400"
-                          }`
-                        }
-                      >
-                        <motion.span className="text-[#64ffda]">
-                          <span className="text-[#64ffda] mr-1">
-                            0{navItems.indexOf(item) + 1}.
-                          </span>
-                          {item.label}
-                        </motion.span>
+                    <Link
+                      to={item.label}
+                      smooth={true}
+                      duration={300}
+                      offset={-120}
+                    >
+                      <div onClick={() => setShowMobileNav(false)}>
+                        <div
+                          key={item.id}
+                          className={({ isActive }) =>
+                            `text-sm transition duration-300 ease-in-out ${
+                              isActive ? "text-[#64ffda]" : "text-gray-400"
+                            }`
+                          }
+                        >
+                          <motion.span className="text-[#64ffda]">
+                            <span className="text-[#64ffda] mr-1">
+                              0{navItems.indexOf(item) + 1}.
+                            </span>
+                            {item.label}
+                          </motion.span>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                   <motion.span
                     className="text-sm text-[#0a192f] bg-[#64ffda] rounded px-4 py-2 fira-code"

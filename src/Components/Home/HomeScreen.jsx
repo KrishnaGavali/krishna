@@ -2,6 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router";
 import "../../font.css";
+import { Element } from "react-scroll";
 
 const HomeScreen = () => {
   return (
@@ -68,9 +69,9 @@ const HomeScreen = () => {
             enjoy working across the entire stack, turning ideas into
             interactive, living systems.
           </motion.p>
-          <motion.div className="my-2 flex flex-row items-center justify-center md:justify-start gap-2 md:text-sm">
+          <motion.div className="my-2 flex flex-col items-center justify-center md:justify-start gap-2 md:text-sm md:flex-row">
             <motion.p
-              className="text-white hidden md:block"
+              className="text-white"
               initial={{
                 x: -20,
                 opacity: 0,
@@ -83,47 +84,49 @@ const HomeScreen = () => {
             >
               What I build :
             </motion.p>
-            <motion.p
-              className="p-2 border-2 border-[#64ffda] text-[#64ffda] rounded-full text-xs"
-              whileHover={{
-                borderLeftWidth: "9px",
-                boxShadow: "0px 0px 10px 0px #64ffda",
-                backgroundColor: "#64ffda",
-                color: "#0a192f",
-              }}
-              initial={{
-                y: 20,
-                opacity: 0,
-              }}
-              animate={{
-                y: 0,
-                opacity: 1,
-                transition: { duration: 0.8, delay: 0.8 },
-              }}
-            >
-              Full Stack Web Products
-            </motion.p>
+            <div className="flex gap-2">
+              <motion.p
+                className="p-1 border-2 border-[#64ffda] text-[#64ffda] rounded-full text-xs w-fit"
+                whileHover={{
+                  borderLeftWidth: "9px",
+                  boxShadow: "0px 0px 10px 0px #64ffda",
+                  backgroundColor: "#64ffda",
+                  color: "#0a192f",
+                }}
+                initial={{
+                  y: 20,
+                  opacity: 0,
+                }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  transition: { duration: 0.8, delay: 0.8 },
+                }}
+              >
+                Full Stack Web Products
+              </motion.p>
 
-            <motion.p
-              className="p-2 border-2 border-[#64ffda] text-[#64ffda] rounded-full text-xs"
-              whileHover={{
-                borderLeftWidth: "9px",
-                boxShadow: "0px 0px 10px 0px #64ffda",
-                backgroundColor: "#64ffda",
-                color: "#0a192f",
-              }}
-              initial={{
-                y: 20,
-                opacity: 0,
-              }}
-              animate={{
-                y: 0,
-                opacity: 1,
-                transition: { duration: 0.8, delay: 0.9 },
-              }}
-            >
-              Real Time Web Apps
-            </motion.p>
+              <motion.p
+                className="p-1 border-2 border-[#64ffda] text-[#64ffda] rounded-full text-xs"
+                whileHover={{
+                  borderLeftWidth: "9px",
+                  boxShadow: "0px 0px 10px 0px #64ffda",
+                  backgroundColor: "#64ffda",
+                  color: "#0a192f",
+                }}
+                initial={{
+                  y: 20,
+                  opacity: 0,
+                }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  transition: { duration: 0.8, delay: 0.9 },
+                }}
+              >
+                Real Time Web Apps
+              </motion.p>
+            </div>
           </motion.div>
           <div
             className="flex flex-row gap-2 mt-2 items-center justify-center md:justify-start"

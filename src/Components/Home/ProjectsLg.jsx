@@ -2,23 +2,33 @@ import React, { useRef, useState } from "react";
 import "../../font.css";
 import { AnimatePresence, motion } from "motion/react";
 
-const ProjectCard = ({ index, title, desc, points, github, livelink }) => {
+const ProjectCard = ({
+  index,
+  title,
+  desc,
+  techstack,
+  github,
+  livelink,
+  work,
+}) => {
   return (
     <motion.div
-      className="border-2 border-[#64ffda] rounded-lg hover:rounded-sm"
+      className="border-2 border-[#64ffda] rounded-lg"
       initial={{
-        scale: 0.5,
+        boxShadow: "0px 0px 5px 0px #64ffda",
+        border: "2px solid transparent",
+        opacity: 0,
       }}
       whileHover={{
-        boxShadow: "7px 7px 0px 0px white",
-        scale: 1.1,
+        boxShadow: "0px 0px 10px 0px #64ffda",
+        border: "2px solid #0a192f",
         transition: {
           delay: 0,
           duration: 0.3,
         },
       }}
       animate={{
-        scale: 1,
+        opacity: 1,
         transition: {
           delay: 0.2 * index,
           duration: 0.3,
@@ -26,36 +36,51 @@ const ProjectCard = ({ index, title, desc, points, github, livelink }) => {
       }}
       viewport={{ once: true }}
     >
-      <div className="flex flex-col bg-[#64ffda] h-56 w-56 p-2 items-center justify-between hover:bg-[#25fac8]">
+      <div className="flex flex-col bg-[#64ffda] h-96 w-72 p-2 items-center rounded-lg justify-between hover:bg-[#25fac8]">
         <p className="text-center text-lg font-semibold">{title}</p>
-        <p className="h-[60%]">{desc}</p>
+        <p className=" my-5">{desc}</p>
+        <p className="font-bold my-2">Tech Stack :</p>
+        <div className=" flex flex-row flex-wrap items-start w-full gap-2">
+          {techstack.map((tech) => (
+            <div className="my-2">
+              <p className=" bg-[#0a192f] text-[#64ffda] p-2 inline text-sm rounded-full shadow-[0px_0px_5px_0px_#0a192f]">
+                {tech}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="w-full flex justify-between items-center border-t-2 border-[#0a192f] ">
-        <motion.a
-          href={livelink}
-          className="w-1/2 p-3 bg-[#64ffda] text-[#0a192f]"
-          whileHover={{
-            backgroundColor: "#0a192f",
-            color: "#64ffda",
-            borderTopColor: "#64ffda",
-            borderRight: "2px solid #64ffda",
-          }}
-        >
-          <p className="">Live Demo</p>
-        </motion.a>
-        <motion.a
-          href={github}
-          className="w-1/2 p-3 text-[#64ffda] text-center"
-          whileHover={{
-            color: "white",
-          }}
-          whileTap={{
-            scale: 0.9,
-          }}
-        >
-          <p className="">Github</p>
-        </motion.a>
-      </div>
+      {work == "deployed" && (
+        <div className="w-full flex justify-between items-center border-t-2 border-[#0a192f] m-1">
+          <motion.a
+            href={livelink}
+            className="w-1/2 p-3 md:bg-[#0a192f] bg-[#64ffda] md:text-[#64ffda] text-[#0a192f] rounded-l-lg border-r-2 border-[#64ffda]"
+            whileHover={{
+              backgroundColor: "#64ffda",
+              color: "#0a192f",
+              borderTopColor: "#64ffda",
+              borderRight: "2px solid #64ffda",
+            }}
+            whileTap={{
+              scale: 0.9,
+            }}
+          >
+            <p className="">Live Demo</p>
+          </motion.a>
+          <motion.a
+            href={github}
+            className="w-1/2 p-3 text-[#64ffda] text-center"
+            whileHover={{
+              color: "white",
+            }}
+            whileTap={{
+              scale: 0.9,
+            }}
+          >
+            <p className="">Github</p>
+          </motion.a>
+        </div>
+      )}
     </motion.div>
   );
 };
@@ -64,24 +89,38 @@ const ProjectsLg = () => {
   const projectData = [
     {
       title: "TypeStrike",
-      description: "4 player multiplayer typing game",
-      points: "really good",
-      github: "ghishgsdig",
-      livelink: "hgidshgois",
+      description:
+        "A real-time 4-player multiplayer typing game with both solo typing test and 4 player battle modes. Built for speed demons and word warriors.",
+      techstack: ["MERN", "Socket.io", "Vercel", "GCP VM", "Nginx", "Certbot"],
+      github: "https://github.com/KrishnaGavali/TypeStrike",
+      livelink: "https://www.typestrike.tech",
+      work: "deployed",
     },
     {
       title: "Chitrush",
-      description: "8 player multiplayer card game",
-      points: "really good",
-      github: "https://www.github.com",
-      livelink: "hgidshgois",
+      description:
+        "A modern web remake of the classic Maharashtrian game 'Charr Chithay'. 8 players, private lobbies, fast-paced fun!",
+      techstack: [
+        "React",
+        "Socket.io",
+        "Redis(Session)",
+        "Vercel",
+        "GCP VM",
+        "Nginx",
+        "Certbot",
+      ],
+      github: "https://github.com/KrishnaGavali/ChitRush",
+      livelink: "https://www.chitrush.me",
+      work: "deployed",
     },
     {
       title: "Campus Connect",
-      description: "Building...",
-      points: "really good",
-      github: "ghishgsdig",
-      livelink: "hgidshgois",
+      description:
+        "A community-first platform to help students collaborate on projects, events, and ideas across campus.",
+      techstack: ["Work in Progress", "Building"],
+      github: "",
+      livelink: "",
+      work: "work in progress",
     },
   ];
 
@@ -98,9 +137,10 @@ const ProjectsLg = () => {
               index={index}
               title={data.title}
               desc={data.description}
-              points={data.points}
+              techstack={data.techstack}
               github={data.github}
               livelink={data.livelink}
+              work={data.work}
             />
           );
         })}
@@ -109,28 +149,42 @@ const ProjectsLg = () => {
   );
 };
 
-const ProjectSSm = () => {
+const ProjectsSm = () => {
   const projectData = [
     {
       title: "TypeStrike",
-      description: "4 player multiplayer typing game",
-      points: "really good",
-      github: "ghishgsdig",
-      livelink: "hgidshgois",
+      description:
+        "A real-time 4-player multiplayer typing game with both solo typing test and 4 player battle modes. Built for speed demons and word warriors.",
+      techstack: ["MERN", "Socket.io", "Vercel", "GCP VM", "Nginx", "Certbot"],
+      github: "https://github.com/KrishnaGavali/TypeStrike",
+      livelink: "https://www.typestrike.tech",
+      work: "deployed",
     },
     {
       title: "Chitrush",
-      description: "8 player multiplayer card game",
-      points: "really good",
-      github: "https://www.github.com",
-      livelink: "hgidshgois",
+      description:
+        "A modern web remake of the classic Maharashtrian game 'Charr Chithay'. 8 players, private lobbies, fast-paced fun!",
+      techstack: [
+        "React",
+        "Socket.io",
+        "Redis(Session)",
+        "Vercel",
+        "GCP VM",
+        "Nginx",
+        "Certbot",
+      ],
+      github: "https://github.com/KrishnaGavali/ChitRush",
+      livelink: "https://www.chitrush.me",
+      work: "deployed",
     },
     {
       title: "Campus Connect",
-      description: "Building...",
-      points: "really good",
-      github: "ghishgsdig",
-      livelink: "hgidshgois",
+      description:
+        "A community-first platform to help students collaborate on projects, events, and ideas across campus.",
+      techstack: ["Work in Progress", "Building"],
+      github: "https://github.com/KrishnaGavali/ChitRush",
+      livelink: "https://chitrush.me",
+      work: "work in progress",
     },
   ];
 
@@ -165,7 +219,7 @@ const ProjectSSm = () => {
       <div className="text-center my-10  text-[#64ffda] text-2xl font-extrabold">
         <h1 className="">Projects</h1>
       </div>
-      <div className="w-2/3 flex flex-row flex-wrap mx-auto items-center justify-center gap-7">
+      <div className="w-full flex flex-row flex-wrap mx-auto items-center justify-center gap-7">
         <motion.div
           className=""
           onTouchStart={handleTouchStart}
@@ -176,9 +230,10 @@ const ProjectSSm = () => {
               key={projectData[cardIndex].title}
               title={projectData[cardIndex].title}
               desc={projectData[cardIndex].description}
-              points={projectData[cardIndex].points}
+              techstack={projectData[cardIndex].techstack}
               github={projectData[cardIndex].github}
               livelink={projectData[cardIndex].livelink}
+              work={projectData[cardIndex].work}
             />
           </AnimatePresence>
 
@@ -204,4 +259,4 @@ const ProjectSSm = () => {
   );
 };
 
-export { ProjectsLg, ProjectSSm };
+export { ProjectsLg, ProjectsSm };
