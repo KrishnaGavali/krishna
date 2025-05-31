@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`bg-[#0a192f] px-1 pr-6 md:px-6 py-4 w-full fira-code fixed top-0 left-0 z-50 ${scrolledStyle} transition-all duration-250`}
+      className={`bg-[#0a192f] px-4 pr-6 md:px-6 py-4 w-full fira-code fixed top-0 left-0 z-50 ${scrolledStyle} transition-all duration-250`}
       initial={{
         y: -200,
       }}
@@ -44,7 +44,7 @@ const Navbar = () => {
       <div className=" mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <div to="/">
+          <Link to="Home" duration={300} smooth={true} offset={-120}>
             <motion.div
               className="text-2xl font-bold text-[#64ffda] lg:pl-5  "
               whileHover={{ scale: 1.4 }}
@@ -53,18 +53,23 @@ const Navbar = () => {
               <img
                 src="/src/assets/Logo.png"
                 alt="Logo"
-                className="h-16 w-16"
+                className="h-10 w-10"
               />
             </motion.div>
-          </div>
+          </Link>
         </div>
 
         {/* Navigation */}
         <div className="hidden md:flex items-center lg:space-x-6 md:space-x-4 ">
           {navItems.map((item) => (
-            <Link to={item.label} smooth={true} duration={300} offset={-120}>
+            <Link
+              to={item.label}
+              smooth={true}
+              duration={300}
+              offset={-120}
+              key={item.id}
+            >
               <div
-                key={item.id}
                 className={`relative text-sm transition duration-300 ease-in-out`}
               >
                 <motion.span>
@@ -158,11 +163,11 @@ const Navbar = () => {
                       to={item.label}
                       smooth={true}
                       duration={300}
-                      offset={-120}
+                      offset={-90}
+                      key={item.id}
                     >
                       <div onClick={() => setShowMobileNav(false)}>
                         <div
-                          key={item.id}
                           className={({ isActive }) =>
                             `text-sm transition duration-300 ease-in-out ${
                               isActive ? "text-[#64ffda]" : "text-gray-400"

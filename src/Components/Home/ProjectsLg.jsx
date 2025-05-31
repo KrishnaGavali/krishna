@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import "../../font.css";
 import { AnimatePresence, motion } from "motion/react";
+import { div } from "motion/react-client";
 
 const ProjectCard = ({
   index,
@@ -34,15 +35,13 @@ const ProjectCard = ({
           duration: 0.3,
         },
       }}
-      viewport={{ once: true }}
     >
       <div className="flex flex-col bg-[#64ffda] h-96 w-72 p-2 items-center rounded-lg justify-between hover:bg-[#25fac8]">
         <p className="text-center text-lg font-semibold">{title}</p>
         <p className=" my-5">{desc}</p>
-        <p className="font-bold my-2">Tech Stack :</p>
         <div className=" flex flex-row flex-wrap items-start w-full gap-2">
           {techstack.map((tech) => (
-            <div className="my-2">
+            <div className="my-2" key={tech}>
               <p className=" bg-[#0a192f] text-[#64ffda] p-2 inline text-sm rounded-full shadow-[0px_0px_5px_0px_#0a192f]">
                 {tech}
               </p>
@@ -113,37 +112,30 @@ const ProjectsLg = () => {
       livelink: "https://www.chitrush.me",
       work: "deployed",
     },
-    {
-      title: "Campus Connect",
-      description:
-        "A community-first platform to help students collaborate on projects, events, and ideas across campus.",
-      techstack: ["Work in Progress", "Building"],
-      github: "",
-      livelink: "",
-      work: "work in progress",
-    },
   ];
 
   return (
-    <div className="fira-code w-full my-5 mb-20">
-      <div className="text-center my-10  text-[#64ffda] text-2xl font-extrabold">
-        <h1 className="">Projects</h1>
-      </div>
-      <div className="w-2/3 flex flex-row flex-wrap mx-auto items-center justify-center gap-7">
-        {projectData.map((data, index) => {
-          return (
-            <ProjectCard
-              key={data.title}
-              index={index}
-              title={data.title}
-              desc={data.description}
-              techstack={data.techstack}
-              github={data.github}
-              livelink={data.livelink}
-              work={data.work}
-            />
-          );
-        })}
+    <div className="w-full h-[90vh] flex justify-center items-center">
+      <div className="fira-code w-full my-5 mb-20">
+        <div className="text-center my-10  text-[#64ffda] text-2xl font-extrabold">
+          <h1 className="">Projects💼📂🚀</h1>
+        </div>
+        <div className="w-2/3 flex flex-row flex-wrap mx-auto items-center justify-center gap-7">
+          {projectData.map((data, index) => {
+            return (
+              <ProjectCard
+                key={data.title}
+                index={index}
+                title={data.title}
+                desc={data.description}
+                techstack={data.techstack}
+                github={data.github}
+                livelink={data.livelink}
+                work={data.work}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
@@ -177,15 +169,6 @@ const ProjectsSm = () => {
       livelink: "https://www.chitrush.me",
       work: "deployed",
     },
-    {
-      title: "Campus Connect",
-      description:
-        "A community-first platform to help students collaborate on projects, events, and ideas across campus.",
-      techstack: ["Work in Progress", "Building"],
-      github: "https://github.com/KrishnaGavali/ChitRush",
-      livelink: "https://chitrush.me",
-      work: "work in progress",
-    },
   ];
 
   const [cardIndex, setCardIndex] = useState(0);
@@ -194,7 +177,6 @@ const ProjectsSm = () => {
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
-    console.log("Swipe Start");
   };
 
   const handleTouchEnd = (e) => {
@@ -210,50 +192,51 @@ const ProjectsSm = () => {
       setDirection(1);
       setCardIndex((prev) => prev + 1);
     }
-
-    console.log("Swipe End");
   };
 
   return (
-    <div className="fira-code w-full my-5 mb-20">
-      <div className="text-center my-10  text-[#64ffda] text-2xl font-extrabold">
-        <h1 className="">Projects</h1>
-      </div>
-      <div className="w-full flex flex-row flex-wrap mx-auto items-center justify-center gap-7">
-        <motion.div
-          className=""
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-        >
-          <AnimatePresence mode="wait">
-            <ProjectCard
-              key={projectData[cardIndex].title}
-              title={projectData[cardIndex].title}
-              desc={projectData[cardIndex].description}
-              techstack={projectData[cardIndex].techstack}
-              github={projectData[cardIndex].github}
-              livelink={projectData[cardIndex].livelink}
-              work={projectData[cardIndex].work}
-            />
-          </AnimatePresence>
+    <div className="w-full h-[90vh] flex justify-center items-center">
+      <div className="fira-code w-full my-5 mb-20">
+        <div className="text-center my-10  text-[#64ffda] text-2xl font-extrabold">
+          <h1 className="">Projects</h1>
+        </div>
+        <div className="w-full flex flex-row flex-wrap mx-auto items-center justify-center gap-7">
+          <motion.div
+            className=""
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            <AnimatePresence mode="wait">
+              <ProjectCard
+                key={projectData[cardIndex].title}
+                title={projectData[cardIndex].title}
+                desc={projectData[cardIndex].description}
+                techstack={projectData[cardIndex].techstack}
+                github={projectData[cardIndex].github}
+                livelink={projectData[cardIndex].livelink}
+                work={projectData[cardIndex].work}
+              />
+            </AnimatePresence>
 
-          <div className=" flex flex-row items-center justify-center my-7 gap-2">
-            {projectData.map((data, index) => (
-              <div
-                key={data.title}
-                className={` w-3 h-3  rounded-full ${
-                  cardIndex == index
-                    ? `bg-[#64ffda] scale-105`
-                    : `bg-gray-500 scale-75`
-                } transition-all duration-300`}
-              ></div>
-            ))}
-          </div>
+            <div className=" flex flex-row items-center justify-center my-7 gap-2">
+              {projectData.map((data, index) => (
+                <div
+                  key={data.title}
+                  className={` w-3 h-3  rounded-full ${
+                    cardIndex == index
+                      ? `bg-[#64ffda] scale-105`
+                      : `bg-gray-500 scale-75`
+                  } transition-all duration-300 hover:bg-white hover:scale-125 cursor-pointer`}
+                  onClick={() => setCardIndex(index)}
+                ></div>
+              ))}
+            </div>
 
-          <div className=" text-[#64ffda] text-center">
-            {"<--- Swipe ^_^ --->"}
-          </div>
-        </motion.div>
+            <div className=" text-[#64ffda] text-center">
+              {"<--- Swipe ^_^ --->"}
+            </div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

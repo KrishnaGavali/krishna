@@ -50,7 +50,7 @@ const SkillCard = ({ title, skills, points }) => (
     </div>
     <div className="mt-3 flex flex-col gap-2">
       {points.map((points) => (
-        <div className="flex flex-row">
+        <div className="flex flex-row" key={points}>
           <span className="text-[#0a192f] inline">{"> "}</span>
           <motion.p key={points} className="text-sm inline">
             {points}
@@ -138,69 +138,72 @@ const Skills = () => {
   };
 
   return (
-    <div className="text-center fira-code bg-[#0a192f] text-[#64ffda] text-2xl font-extrabold p-5 pt-7 w-full">
-      <motion.p
-        className="font-bold mb-10"
-        initial={{ opacity: 0, y: -10 }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.4, delay: 0.1 },
-        }}
-      >
-        Skills
-      </motion.p>
+    <div className="w-full  h-[100vh] flex justify-center items-center">
+      <div className="text-center fira-code bg-[#0a192f] text-[#64ffda] text-2xl font-extrabold p-5 pt-7 w-full">
+        <motion.p
+          className="font-bold mb-10"
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.4, delay: 0.1 },
+          }}
+          viewport={{ once: true }}
+        >
+          Skills
+        </motion.p>
 
-      <div className="w-full md:w-h-3/4 lg:w-2/3 full mx-auto flex flex-col md:flex-row justify-center items-center">
-        {/* -- Tabs -- */}
-        <div className="flex flex-row md:flex-col h-full w-full md:w-1/2 justify-center items-center gap-3 mb-5 border-b-2 border-[#64ffda] pb-5 md:border-b-0 md:border-r-2 md:border-l-2 md:px-5">
-          {Object.keys(skillsData).map((tabKey, index) => {
-            const isActive = currentTab === tabKey;
+        <div className="w-full md:w-h-3/4 lg:w-2/3 full mx-auto flex flex-col md:flex-row justify-center items-center">
+          {/* -- Tabs -- */}
+          <div className="flex flex-row md:flex-col h-full w-full md:w-1/2 justify-center items-center gap-3 mb-5 border-b-2 border-[#64ffda] pb-5 md:border-b-0 md:border-r-2 md:border-l-2 md:px-5">
+            {Object.keys(skillsData).map((tabKey, index) => {
+              const isActive = currentTab === tabKey;
 
-            return (
-              <motion.button
-                key={tabKey}
-                onClick={() => setCurrentTab(tabKey)}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+              return (
+                <motion.button
+                  key={tabKey}
+                  onClick={() => setCurrentTab(tabKey)}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2, duration: 0.3 }}
+                  className={`text-sm px-4 py-2 w-full rounded-md transition-all duration-300 ease-in-out border-2 ${
+                    isActive
+                      ? "bg-[#64ffda] text-[#0a192f] border-[#0a192f] shadow-[7px_7px_0px_0px_white]"
+                      : "bg-transparent text-[#64ffda] border-transparent hover:bg-[#0a192f] hover:text-[#64ffda] hover:border-[#64ffda]"
+                  }`}
+                >
+                  {tabKey.charAt(0).toUpperCase() + tabKey.slice(1)}
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {/* -- Skill Card -- */}
+          <div className="h-full w-full relative md:ml-2">
+            <AnimatePresence mode="wait">
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.4, delay: 0.2 },
+                }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2, duration: 0.3 }}
-                className={`text-sm px-4 py-2 w-full rounded-md transition-all duration-300 ease-in-out border-2 ${
-                  isActive
-                    ? "bg-[#64ffda] text-[#0a192f] border-[#0a192f] shadow-[7px_7px_0px_0px_white]"
-                    : "bg-transparent text-[#64ffda] border-transparent hover:bg-[#0a192f] hover:text-[#64ffda] hover:border-[#64ffda]"
-                }`}
               >
-                {tabKey.charAt(0).toUpperCase() + tabKey.slice(1)}
-              </motion.button>
-            );
-          })}
-        </div>
-
-        {/* -- Skill Card -- */}
-        <div className="h-full w-full relative md:ml-2">
-          <AnimatePresence mode="wait">
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.4, delay: 0.2 },
-              }}
-              viewport={{ once: true }}
-            >
-              <SkillCard
-                key={currentTab}
-                title={skillsData[currentTab].title}
-                skills={skillsData[currentTab].skills}
-                points={skillsData[currentTab].points}
-              />
-            </motion.div>
-          </AnimatePresence>
+                <SkillCard
+                  key={currentTab}
+                  title={skillsData[currentTab].title}
+                  skills={skillsData[currentTab].skills}
+                  points={skillsData[currentTab].points}
+                />
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </div>

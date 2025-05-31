@@ -1,15 +1,14 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router";
 import "../../font.css";
-import { Element } from "react-scroll";
+import { Link } from "react-scroll";
 
 const HomeScreen = () => {
   return (
     <>
       <div className="relative flex flex-col md:flex-row items-start mb-14">
         {/* Left Side Content */}
-        <div className=" mt-8 pt-20 md:mt-10 lg:pt-32 fira-code p-3 pl-5 md:pt-24 md:w-1/2 md:pl-10 lg:w-[55%] lg:pl-16 text-center md:text-left min-w-1/2">
+        <div className=" mt-8 pt-14 md:mt-10 lg:pt-32 fira-code p-3 pl-5 md:pt-24 md:w-1/2 md:pl-10 lg:w-[55%] lg:pl-16 text-center md:text-left min-w-1/2">
           <motion.div
             className=" md:hidden block"
             initial={{ scale: 0 }}
@@ -20,7 +19,6 @@ const HomeScreen = () => {
               <img
                 src="src/assets/mobileProfile.jpg"
                 alt=""
-                srcset=""
                 className=" rounded-full shadow-[0px_0px_25px_0px_#64ffda]"
               />
             </motion.div>
@@ -73,20 +71,20 @@ const HomeScreen = () => {
             <motion.p
               className="text-white"
               initial={{
-                x: -20,
+                y: 20,
                 opacity: 0,
               }}
               animate={{
-                x: 0,
+                y: 0,
                 opacity: 1,
                 transition: { duration: 0.8, delay: 0.6 },
               }}
             >
-              What I build :
+              What I build
             </motion.p>
-            <div className="flex gap-2">
+            <div className="flex gap-2 ">
               <motion.p
-                className="p-1 border-2 border-[#64ffda] text-[#64ffda] rounded-full text-xs w-fit"
+                className="p-1 border-2 border-[#64ffda] text-[#64ffda] rounded-full text-xs w-1/2 text-center"
                 whileHover={{
                   borderLeftWidth: "9px",
                   boxShadow: "0px 0px 10px 0px #64ffda",
@@ -103,11 +101,11 @@ const HomeScreen = () => {
                   transition: { duration: 0.8, delay: 0.8 },
                 }}
               >
-                Full Stack Web Products
+                <span>Full Stack Web Products</span>
               </motion.p>
 
               <motion.p
-                className="p-1 border-2 border-[#64ffda] text-[#64ffda] rounded-full text-xs"
+                className="p-1 border-2 border-[#64ffda] text-[#64ffda] rounded-full text-xs w-1/2 flex justify-center items-center"
                 whileHover={{
                   borderLeftWidth: "9px",
                   boxShadow: "0px 0px 10px 0px #64ffda",
@@ -124,7 +122,7 @@ const HomeScreen = () => {
                   transition: { duration: 0.8, delay: 0.9 },
                 }}
               >
-                Real Time Web Apps
+                <span>Real Time Web Apps</span>
               </motion.p>
             </div>
           </motion.div>
@@ -183,7 +181,7 @@ const HomeScreen = () => {
             </motion.div>
           </div>
 
-          <div to="/projects">
+          <Link to="Projects" smooth={true} duration={300} offset={-120}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -210,7 +208,7 @@ const HomeScreen = () => {
                 Check out my projects
               </motion.button>
             </motion.div>
-          </div>
+          </Link>
         </div>
 
         {/* Right Side Image - Only visible on tablet and larger screens */}

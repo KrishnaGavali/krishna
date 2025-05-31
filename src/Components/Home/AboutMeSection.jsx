@@ -4,7 +4,7 @@ import "../../font.css";
 
 const AboutMeSection = () => {
   return (
-    <div className="fira-code p-10 pt-7 bg-[#0a192f]">
+    <div className="fira-code p-10 pt-7 bg-[#0a192f] h-[65vh] flex justify-center items-center">
       <div className="w-full md:w-[90%] lg:w-[75%] mx-auto mb-5 md:mb-10 flex flex-col items-center ">
         <motion.p
           className="text-center text-[#64ffda] text-2xl font-extrabold mb-5"
@@ -31,7 +31,6 @@ const AboutMeSection = () => {
               <img
                 src="src/assets/mobileProfile.jpg"
                 alt=""
-                srcset=""
                 className=" rounded-full shadow-[0px_0px_25px_0px_#64ffda]"
               />
             </motion.div>
