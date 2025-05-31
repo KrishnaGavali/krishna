@@ -1,12 +1,25 @@
-# React + Vite
+# 🌐 Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛠️ Tech Stack
 
-Currently, two official plugins are available:
+Built with a modern, clean stack to keep things snappy and stylish:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚛️ **React** – Modular, reusable, and just plain awesome
+- 🎨 **Tailwind CSS** – Utility-first styling that keeps the vibes consistent
+- 🎞️ **Framer Motion** – Smooth, subtle animations that bring the UI to life
+- 🌀 **React Scroll** – For buttery-smooth navigation
+- ⚡ **Vite** – Because waiting on builds? Nah.
+- ☁️ **Deployment** – Seamlessly hosted on **Vercel**
 
-## Expanding the ESLint configuration
+## 📬 Get in Touch
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Whether you’re looking to **collaborate**, **hire**, or just want to say hey —
+I’m always down to chat. Drop a message through the contact form on the site, or find me around the internet [here](https://www.linkedin.com/in/krishnagavali).
+
+---
+
+Made with 💙, sleepless nights, and a whole lot of curiosity by **Krishna**
+
+> _“Just a dev trying to turn ideas into pixels and pixels into stories.”_
+
+---
