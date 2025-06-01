@@ -45,17 +45,13 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center">
           <Link to="Home" duration={300} smooth={true} offset={-120}>
-            <motion.div
-              className="text-2xl font-bold text-[#64ffda] lg:pl-5  "
-              whileHover={{ scale: 1.4 }}
-              transition={{ duration: 0.3, ease: "backInOut" }}
-            >
+            <div className="text-2xl font-bold text-[#64ffda] lg:pl-5  ">
               <img
                 src="https://s6.imgcdn.dev/YMsJN2.png"
                 alt="Logo"
                 className="h-10 w-10"
               />
-            </motion.div>
+            </div>
           </Link>
         </div>
 
@@ -106,7 +102,7 @@ const Navbar = () => {
 
           {/* Resume Button */}
           <motion.a
-            href="#resume"
+            href="https://drive.google.com/file/d/1sWgGjRloRlpZMykteLeWFhRO2E_6aZbk/view"
             className="text-sm text-[#64ffda] border border-[#64ffda] rounded px-4 py-2 relative fira-code"
             whileHover={{
               backgroundColor: "rgba(100, 255, 218)",
@@ -184,12 +180,14 @@ const Navbar = () => {
                       </div>
                     </Link>
                   ))}
-                  <motion.span
-                    className="text-sm text-[#0a192f] bg-[#64ffda] rounded px-4 py-2 fira-code"
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    Resume
-                  </motion.span>
+                  <a href="https://drive.google.com/file/d/1sWgGjRloRlpZMykteLeWFhRO2E_6aZbk/view">
+                    <motion.span
+                      className="text-sm text-[#0a192f] bg-[#64ffda] rounded px-4 py-2 fira-code"
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      Resume
+                    </motion.span>
+                  </a>
                 </div>
               </div>
             </motion.div>
