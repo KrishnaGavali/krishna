@@ -94,6 +94,7 @@ const Contact = () => {
           className="text-[#64ffda] text-2xl font-bold mb-6 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.3, delay: 0.2 }}
         >
           Connect With Me
@@ -107,6 +108,7 @@ const Contact = () => {
             opacity: 1,
             transition: { delay: 0.2, duration: 0.3 },
           }}
+          viewport={{ once: true }}
         >
           <motion.input
             type="text"

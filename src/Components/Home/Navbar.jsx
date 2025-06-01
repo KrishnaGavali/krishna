@@ -51,7 +51,7 @@ const Navbar = () => {
               transition={{ duration: 0.3, ease: "backInOut" }}
             >
               <img
-                src="/src/assets/Logo.png"
+                src="https://s6.imgcdn.dev/YMsJN2.png"
                 alt="Logo"
                 className="h-10 w-10"
               />

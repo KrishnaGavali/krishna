@@ -29,7 +29,7 @@ const AboutMeSection = () => {
           >
             <motion.div className="w-32 mr-5" id="profile-image">
               <img
-                src="src/assets/mobileProfile.jpg"
+                src="https://s6.imgcdn.dev/YMspbH.jpg"
                 alt=""
                 className=" rounded-full shadow-[0px_0px_25px_0px_#64ffda]"
               />

@@ -19,6 +19,7 @@ const Footer = () => {
           delay: 0.2,
         },
       }}
+      viewport={{ once: true }}
     >
       <div className="flex gap-8 mb-6">
         <motion.a
