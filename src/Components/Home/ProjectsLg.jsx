@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import "../../font.css";
 import { AnimatePresence, motion } from "motion/react";
-import { div } from "motion/react-client";
 
 const ProjectCard = ({
   index,

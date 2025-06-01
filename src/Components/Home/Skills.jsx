@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../../font.css";
-import { AnimatePresence, motion } from "framer-motion";
-import { div } from "motion/react-client";
+import { AnimatePresence, motion } from "motion/react";
 
 // Animations ✨
 const cardVariant = {
@@ -42,7 +41,7 @@ const SkillCard = ({ title, skills, points }) => (
           initial="hidden"
           animate="visible"
           viewport={{ once: true }}
-          className="text-[#64ffda] transition-colors duration-300 cursor-pointer p-0.5 px-1 bg-[#0a192f] rounded-full border-2 border-transparent border-l-4 border-l-white "
+          className="text-[#64ffda] transition-colors duration-300 p-0.5 px-1 bg-[#0a192f] rounded-full border-2 border-transparent border-l-4 border-l-white "
         >
           {skill}
         </motion.p>
@@ -51,7 +50,7 @@ const SkillCard = ({ title, skills, points }) => (
     <div className="mt-3 flex flex-col gap-2">
       {points.map((points) => (
         <div className="flex flex-row" key={points}>
-          <span className="text-[#0a192f] inline">{"> "}</span>
+          <span className="text-[#0a192f] inline">{">"}</span>
           <motion.p key={points} className="text-sm inline">
             {points}
           </motion.p>
@@ -80,13 +79,13 @@ const Skills = () => {
         "ShadCN UI",
       ],
       points: [
-        "Built responsive SPAs & games",
-        "Real-time UI with WebSockets",
-        "Designed multiplayer room system",
-        "Used hooks and context API",
-        "Created clean component structure",
-        "Cross-browser, mobile-first design",
-        "Fast, intuitive user interfaces",
+        "Built responsive SPAs with mobile-first design",
+        "Managed real-time UI with Socket.IO (client)",
+        "Handled sessions and room-based systems",
+        "Implemented clean state management",
+        "Created modular, reusable components",
+        "Designed device-agnostic interfaces",
+        "Delivered fast, intuitive UIs",
       ],
     },
 
@@ -102,12 +101,12 @@ const Skills = () => {
         "JWT Authentication",
       ],
       points: [
-        "Built REST & socket servers",
-        "Session storage with Redis",
-        "JWT for secure login",
-        "FastAPI for ML tools",
-        "Handled room matchmaking logic",
-        "Connected and Handled MongoDB  with backend",
+        "Built REST & Socket.IO servers for real-time apps",
+        "Managed sessions with Redis for scalability",
+        "Implemented JWT authentication for secure login",
+        "Used FastAPI to serve ML tools",
+        "Developed custom room matchmaking logic",
+        "Connected and managed MongoDB",
         "Tested APIs using Postman",
       ],
     },
@@ -127,12 +126,12 @@ const Skills = () => {
         "Linux CLI",
       ],
       points: [
-        "Hosted apps on GCP/AWS",
-        "Custom domains with SSL",
-        "Used Nginx reverse proxy",
-        "Managed apps using PM2",
-        "Edited configs with Vim",
-        "Linux CLI for deployment",
+        "Deployed apps on GCP and AWS",
+        "Configured custom domains with SSL (HTTPS)",
+        "Used Nginx as a reverse proxy for routing",
+        "Managed Node.js processes with PM2",
+        "Edited server configs efficiently using Vim",
+        "Handled deployments via Linux command-line",
       ],
     },
   };

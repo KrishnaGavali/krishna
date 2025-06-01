@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { AnimatePresence, motion, useAnimate } from "motion/react";
+import React from "react";
+import { AnimatePresence } from "motion/react";
 import "../font.css";
 import { Link } from "react-router";
 import HomeScreen from "../Components/Home/HomeScreen";
@@ -9,7 +9,7 @@ import Skills from "../Components/Home/Skills";
 import { ProjectsLg, ProjectsSm } from "../Components/Home/ProjectsLg";
 import { Element } from "react-scroll";
 import Contact from "../Components/Home/Contact";
-import Footer from "../Components/Home/footer";
+import Footer from "../Components/Home/Footer";
 
 const Home = () => {
   return (
