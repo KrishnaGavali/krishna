@@ -46,11 +46,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link to="Home" duration={300} smooth={true} offset={-120}>
             <div className="text-2xl font-bold text-[#64ffda] lg:pl-5  ">
-              <img
-                src="https://s6.imgcdn.dev/YMsJN2.png"
-                alt="Logo"
-                className="h-10 w-10"
-              />
+              <img src="src\assets\Logo.png" alt="Logo" className="h-10 w-10" />
             </div>
           </Link>
         </div>

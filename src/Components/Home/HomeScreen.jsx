@@ -17,7 +17,7 @@ const HomeScreen = () => {
           >
             <motion.div className="w-32 mx-auto mb-5" id="profile-image">
               <img
-                src="https://s6.imgcdn.dev/YMspbH.jpg"
+                src="src\assets\mobileProfile.jpg"
                 alt=""
                 className=" rounded-full shadow-[0px_0px_25px_0px_#64ffda]"
               />
@@ -221,7 +221,7 @@ const HomeScreen = () => {
             exit={{ opacity: 0, x: 20 }}
           >
             <img
-              src="https://s6.imgcdn.dev/YMsoGi.png"
+              src="src\assets\MeSittingDeskWaving.png"
               alt="Profile"
               className=" md:w-full max-w-xs md:max-w-md"
             />
